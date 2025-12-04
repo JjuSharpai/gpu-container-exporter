@@ -1,0 +1,23 @@
+services:
+  gpu_container_exporter:
+    build: .
+    image: mirero/daq:gpu-container-exporter
+    container_name: daq_gpu_container_exporter
+    network_mode: host
+    restart: always
+    pid: host
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [utility, compute]
+    ulimits:
+      core:
+        soft: 0
+        hard: 0
