@@ -194,3 +194,6 @@ Exporter가 정상 작동하려면 다음 권한이 필요합니다:
            - driver: nvidia
              capabilities: [utility]
    ```
+
+# Docker Hub
+- https://hub.docker.com/r/juhyung1021/gpu-container-exporter
